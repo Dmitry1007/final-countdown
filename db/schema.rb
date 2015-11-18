@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 20151118171531) do
     t.string   "title"
     t.string   "url"
     t.boolean  "read",       default: false
+    t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email_address"
@@ -31,4 +34,5 @@ ActiveRecord::Schema.define(version: 20151118171531) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "links", "users"
 end
