@@ -12,6 +12,7 @@ RSpec.feature "Registered user can log in", type: :feature do
 
       fill_in "Email address", with: user.email_address
       fill_in "Password", with: user.password
+      fill_in "Password confirmation", with: user.password
       click_button "Login"
 
       expect(page).to have_content "Logout"
@@ -25,6 +26,7 @@ RSpec.feature "Registered user can log in", type: :feature do
 
       fill_in "Email address", with: "blah@blah.com"
       fill_in "Password", with: "what-evs"
+      fill_in "Password confirmation", with: "what-evs"
       click_button "Login"
 
       expect(page).to have_content "Invalid username or password"
