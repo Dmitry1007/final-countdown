@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     user.save
-    session[:user_id] = user.id #key is arbitrary
-    redirect_to user_path(user)
+    session[:user_id] = user.id
+    redirect_to links_path
   end
 
   private
