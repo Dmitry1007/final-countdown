@@ -1,3 +1,18 @@
 <%= link_to "Logout", logout_path, method: :delete %>
 
-<h3>Your Links</h3>
+<h4>Add Link</h4>
+  <%= form_for(:link, url: links_path) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+
+    <%= f.label :url %>
+    <%= f.text_field :url %> <br>
+
+    <%= f.submit "Add Link" %>
+  <% end %>
+
+<h4>Your Links</h4>
+ <% @links.each do |link| %>
+  <h6><%= link.title %>:<br><%= link.url %></h6>
+  
+ <% end %>
