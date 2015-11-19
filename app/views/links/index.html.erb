@@ -23,27 +23,22 @@
     <option value="true">Read</option>
     <option value="false">Unread</option>
   </select>
-</div>
+</div><br>
 
-<div id="links">Your Links
+<div id="links">YOUR LINKS
    <% @links.each do |link| %>
-    <div class="link" data-title="<%= link.title %>" data-status="<%= link.read %>">
+    <div class="link" data-title="<%= link.title %>" data-status="<%= link.read %>">Title:
       <h6><%= link.title %></h6>URL:
       <% if link.read == false %>
-        <span class="line-through-link" data="<%= link.id %>"><%= link.url %></span>
-      <% else %>
         <span data="<%= link.id %>"><%= link.url %></span>
+        <button class="read-status" data="<%= link.id %>">Mark As Read</button>
+      <% else %>
+        <span class="line-through-link" data="<%= link.id %>"><%= link.url %></span>
+        <button class="read-status" data="<%= link.id %>">Mark As Unread</button>
       <% end %>
-
       <%= link_to "Recommend Link", email_path(link_url: link.url) %>
       <%= link_to "Edit", edit_link_path(link) %>
-      <button class="read-status" data="<%= link.id %>">
-        <% if link.read == false %>
-          <%= "Mark As Read" %>
-        <% else %>
-          <%= "Mark As Unread" %>
-        <% end %>
-      </button>
     </div>
   <% end %>
 </div>
+<hr>
