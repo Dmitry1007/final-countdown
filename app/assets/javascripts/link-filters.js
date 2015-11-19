@@ -13,4 +13,24 @@ $(document).ready(function () {
       }
     });
   });
+
+  $(".sort-alpha").on("click", function() {
+    var $sort = this;
+    var $links = $('#links');
+    var $link = $(".link");
+
+
+    $link.sort(function(a, b) {
+      var ParamA = $(a).find('h6').text().toLowerCase();
+      var ParamB = $(b).find('h6').text().toLowerCase();
+      if($($sort).hasClass('ascending')) {
+          return (ParamA > ParamB) ? 1 : 0;
+      } else {
+          return (ParamA < ParamB) ? 1 : 0;
+      }
+    });
+    $.each($link, function(index, element) {
+      $links.append(element);
+    })
+  })
 });

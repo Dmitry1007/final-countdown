@@ -15,23 +15,26 @@
 <div class="filter">
   <label>Filter By Title</label>
   <%= text_field :link, :filter_title %>
+  <button class="sort-alpha ascending">Sort Ascending</button>
+  <button class="sort-alpha descending">Sort Descending</button>
 </div>
 
-<h4>Your Links</h4>
- <% @links.each do |link| %>
-  <div class="link" data-title="<%= link.title %>">
-    <h6>Title: <%= link.title %></h6>URL:
-    <span data="<%= link.id %>">
-      <%= link.url %>
-    </span>
+<div id="links">Your Links
+   <% @links.each do |link| %>
+    <div class="link" data-title="<%= link.title %>">
+      <h6><%= link.title %></h6>URL:
+      <span data="<%= link.id %>">
+        <%= link.url %>
+      </span>
 
-    <%= link_to "Edit", edit_link_path(link) %>
-    <button class="read-status" data="<%= link.id %>">
-      <% if link.read == false %>
-        <%= "Mark As Read" %>
-      <% else %>
-        <%= "Mark As Unread" %>
-      <% end %>
-    </button>
-  </div>
-<% end %>
+      <%= link_to "Edit", edit_link_path(link) %>
+      <button class="read-status" data="<%= link.id %>">
+        <% if link.read == false %>
+          <%= "Mark As Read" %>
+        <% else %>
+          <%= "Mark As Unread" %>
+        <% end %>
+      </button>
+    </div>
+  <% end %>
+</div>
