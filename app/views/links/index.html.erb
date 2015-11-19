@@ -17,11 +17,17 @@
   <%= text_field :link, :filter_title %>
   <button class="sort-alpha ascending">Sort Ascending</button>
   <button class="sort-alpha descending">Sort Descending</button>
+  <label>Filter By Status</label>
+  <select id="link_filter_status">
+    <option value="empty"></option>
+    <option value="true">Read</option>
+    <option value="false">Unread</option>
+  </select>
 </div>
 
 <div id="links">Your Links
    <% @links.each do |link| %>
-    <div class="link" data-title="<%= link.title %>">
+    <div class="link" data-title="<%= link.title %>" data-status="<%= link.read %>">
       <h6><%= link.title %></h6>URL:
       <span data="<%= link.id %>">
         <%= link.url %>

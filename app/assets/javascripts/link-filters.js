@@ -33,4 +33,17 @@ $(document).ready(function () {
       $links.append(element);
     })
   })
+
+  $('#link_filter_status').on('change', function () {
+    var currentStatus = this.value;
+
+    $links.each(function (index, link) {
+      $link = $(link);
+      if ($link.data('status').toString() === currentStatus) {
+        $link.show();
+      } else {
+        $link.hide();
+      }
+    });
+  });
 });
