@@ -14,7 +14,7 @@ RSpec.feature "Visitor signs up and is logged in", type: :feature do
       click_button "Sign Up"
 
       expect(current_path).to eq(links_path)
-      expect(page).to have_content("Links")
+      expect(page).to have_content("LINKS")
       expect(page).to have_link("Logout")
     end
   end

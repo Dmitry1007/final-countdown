@@ -1,7 +1,12 @@
 class LinksController < ApplicationController
 
   def index
-    @links = current_user.links
+    if current_user.nil?
+      flash[:danger] = "Nice Try Wise Guy"
+      redirect_to root_path
+    else
+      @links = current_user.links
+    end
   end
 
   def create
