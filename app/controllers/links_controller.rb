@@ -1,12 +1,8 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    if current_user.nil?
-      flash[:danger] = "Nice Try Wise Guy"
-      redirect_to root_path
-    else
-      @links = current_user.links
-    end
+    @links = current_user.links
   end
 
   def create
