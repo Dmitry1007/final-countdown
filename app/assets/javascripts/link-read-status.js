@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".read-status").on("click", function () {
+  $("#links-container").delegate("#read-status", "click", function () {
     var linkId = $.parseJSON($(this).attr('data'));
 
     $.ajax({
@@ -7,8 +7,10 @@ $(document).ready(function () {
       url:     "/api/v1/links/" + linkId,
       success: function(link) {
         if (link.read === true) {
+          $("span[data="+link.id+"]").css("text-decoration","line-through")
           $("button[data="+link.id+"]").text("Mark As Unread")
         } else {
+          $("span[data="+link.id+"]").css("text-decoration","none")
           $("button[data="+link.id+"]").text("Mark As Read")
         }
       }

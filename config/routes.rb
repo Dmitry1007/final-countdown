@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post "/links/:id", to: "links#update"
+      get  "/index", to: "links#index"
     end
   end
 end

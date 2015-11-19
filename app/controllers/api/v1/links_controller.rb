@@ -6,4 +6,8 @@ class Api::V1::LinksController < ApplicationController
     link.update(read: !link.read)
     respond_with link
   end
+
+  def index
+    respond_with current_user.links
+  end
 end
