@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  get    '/email', to: 'notifications#show'
+  post   '/notifications', to: 'notifications#create'
+
   resources :links, only: [:index, :create, :edit, :update]
 
   get    '/login', to: 'sessions#new'

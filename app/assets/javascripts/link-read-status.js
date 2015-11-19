@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#links-container").delegate("#read-status", "click", function () {
+  $(".read-status").on("click", function () {
     var linkId = $.parseJSON($(this).attr('data'));
 
     $.ajax({

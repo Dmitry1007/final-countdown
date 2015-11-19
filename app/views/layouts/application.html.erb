@@ -8,11 +8,8 @@
 </head>
 <body>
 
-<% flash.each do |type, msg| %>
-  <div class="alert alert-<%= type %>">
-    <%= sanitize(msg) %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  </div>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-success" %>
 <% end %>
 
 <%= yield %>
