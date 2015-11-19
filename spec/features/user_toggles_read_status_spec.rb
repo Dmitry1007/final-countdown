@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User can update link", type: :feature do
+RSpec.describe "User can update link", type: :feature, js: true do
   context "as a authenticated user" do
     let!(:user) { User.create!(email_address: "dmitry@mail.com", password: "password", password_confirmation: "password") }
     let!(:link) { Link.create!(title: "cool stuff", url: "http://www.cool-stuff.com", user_id: user.id) }
@@ -17,7 +17,7 @@ RSpec.describe "User can update link", type: :feature do
       expect(page).to have_button("Mark As Read")
 
       click_button("Mark As Read")
-      # expect(page).to_not have_button("Mark As Read")
+      expect(page).to_not have_button("Mark As Read")
     end
   end
 end

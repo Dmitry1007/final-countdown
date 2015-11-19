@@ -25,6 +25,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'rspec-rails'
   gem 'web-console', '~> 2.0'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
