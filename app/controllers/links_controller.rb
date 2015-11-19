@@ -25,6 +25,7 @@ class LinksController < ApplicationController
     @link.update(title: params[:link][:title], url: params[:link][:url], user_id: current_user.id)
 
     if @link.save
+      flash[:success] = "Successfully Updated!"
       redirect_to links_path
     else
       flash[:danger] = "Please enter a valid URL"

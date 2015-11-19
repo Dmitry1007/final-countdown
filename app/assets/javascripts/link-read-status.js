@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $('.line-through-link').css("text-decoration","line-through")
+
   $(".read-status").on("click", function () {
     var linkId = $.parseJSON($(this).attr('data'));
 
