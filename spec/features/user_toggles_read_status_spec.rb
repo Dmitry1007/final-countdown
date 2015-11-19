@@ -18,6 +18,8 @@ RSpec.describe "User can update link", type: :feature, js: true do
 
       click_button("Mark As Read")
       expect(page).to_not have_button("Mark As Read")
+      link.reload
+      expect(link.read).to eq(true)
     end
   end
 end
