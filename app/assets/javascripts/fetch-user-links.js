@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
 
         $("#links-container").append(
-          "<div class='link' data-id='"
+          "<div class='link' data-title="+link.title+" data-id='"
           + link.id
           + "'><h6>Title: "
           + link.title

@@ -1,15 +1,37 @@
 <%= link_to "Logout", logout_path, method: :delete %>
 
 <h4>Add Link</h4>
-  <%= form_for(:link, url: links_path) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %> <br>
+<%= form_for(:link, url: links_path) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br>
 
-    <%= f.label :url %>
-    <%= f.text_field :url %> <br>
+  <%= f.label :url %>
+  <%= f.text_field :url %> <br>
 
-    <%= f.submit "Add Link" %>
-  <% end %>
+  <%= f.submit "Add Link" %>
+<% end %>
+<br>
 
-<div id="links-container">
+<div class="filter">
+  <label>Filter By Title</label>
+  <%= text_field :link, :filter_title %>
 </div>
+
+<h4>Your Links</h4>
+ <% @links.each do |link| %>
+  <div class="link" data-title="<%= link.title %>">
+    <h6>Title: <%= link.title %></h6>URL:
+    <span data="<%= link.id %>">
+      <%= link.url %>
+    </span>
+
+    <%= link_to "Edit", edit_link_path(link) %>
+    <button class="read-status" data="<%= link.id %>">
+      <% if link.read == false %>
+        <%= "Mark As Read" %>
+      <% else %>
+        <%= "Mark As Unread" %>
+      <% end %>
+    </button>
+  </div>
+<% end %>
